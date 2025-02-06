@@ -14,7 +14,7 @@ const nextConfig = {
   //   return [
   //     {
   //       source: '/news/page/:page',
-  //       destination: '/news', // You can adjust this based on how your app is structured
+  //       destination: '/news',
   //     },
   //   ];
   // },
