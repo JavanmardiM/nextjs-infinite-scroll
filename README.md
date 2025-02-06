@@ -14,3 +14,9 @@ This is a Next.js project demonstrating **Infinite Scroll** functionality. It lo
 - **TypeScript** - Superset of JavaScript that adds type safety.
 - **TanStack Query** - Data fetching and state management for React.
 - **CSS** - For styling the components.
+
+## Deployed Page
+
+Here's the online Demo:
+
+👉 [ **Demo**](https://nextjs-infinite-scroll-eight.vercel.app/news/)
