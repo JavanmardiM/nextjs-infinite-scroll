@@ -72,7 +72,9 @@ export default function Page() {
         </div>
       ) : (
         <noscript>
-          <button className="my-4">صفحه بعد</button>
+          <button className="my-4" onClick={handleNextPage}>
+            صفحه بعد
+          </button>
         </noscript>
       )}
 
