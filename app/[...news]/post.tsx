@@ -36,7 +36,7 @@ export default function Post({ post, index }: Props) {
           ? post.reactions.bearish + 1
           : post.reactions.bearish,
     }),
-    [reaction],
+    [reaction]
   );
 
   const cleanedSourceUrl = post.source.url
