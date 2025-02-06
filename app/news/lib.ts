@@ -11,11 +11,17 @@ async function _fetch(url: string) {
   });
 }
 
-async function getNews({ page = 1 }: { page?: number } = {}) {
-  const response = await _fetch(`/news/catalog?page=${page}`);
-
-  return (await response.json()) as News;
+async function getNews({ pageParam = 1 }: { pageParam?: number } = {}) {
+  const response = await _fetch(`/news/catalog?page=${pageParam}`);
+  const data = await response.json();
+  
+  // The return type should match the structure of your `News` type
+  return {
+    results: data.results.data, // the actual posts for the current page
+    nextPage: data.results.next_page_url ? pageParam + 1 : undefined, // if there is a next page, return the next page number
+  };
 }
+
 
 function pagination(response: News) {
   const hasNextPage = response.results.next_page_url !== null;
