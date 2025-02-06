@@ -67,18 +67,20 @@ export default function Page() {
       ))}
 
       {hasNextPage ? (
-        <div ref={ref} className="h-10">
+        <div ref={ref} className="my-4 h-10">
           در حال بارگذاری ...
         </div>
       ) : (
         <noscript>
-          <button className="my-4" onClick={handleNextPage}>
-            صفحه بعد
-          </button>
+          <div>
+            <button className="my-4" onClick={handleNextPage}>
+              صفحه بعد
+            </button>
+          </div>
         </noscript>
       )}
 
-      {isLoading && <div>در حال بارگذاری ...</div>}
+      {isLoading && <div className="my-4">در حال بارگذاری ...</div>}
       {isError && <div>Error loading data.</div>}
     </div>
   );
