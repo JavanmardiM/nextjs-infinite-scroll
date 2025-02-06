@@ -42,14 +42,14 @@ export default function Page() {
   useEffect(() => {
     let timeout: NodeJS.Timeout;
 
-    if (inView && hasNextPage) {
+    if (inView && hasNextPage && !isLoading) {
       timeout = setTimeout(() => {
         handleNextPage();
-      }, 500); // Delay to prevent rapid calls
+      }, 1000);
     }
 
     return () => clearTimeout(timeout);
-  }, [inView, hasNextPage]);
+  }, [inView, hasNextPage, isLoading, handleNextPage]);
 
   return (
     <div>
@@ -67,19 +67,17 @@ export default function Page() {
       ))}
 
       {hasNextPage ? (
-        <button onClick={handleNextPage} className="my-4">
-          Load more
-        </button>
+        <div ref={ref} className="h-10">
+          در حال بارگذاری ...
+        </div>
       ) : (
         <noscript>
-          <button className="my-4">Next Page</button>
+          <button className="my-4">صفحه بعد</button>
         </noscript>
       )}
 
-      {isLoading && <div>Loading...</div>}
+      {isLoading && <div>در حال بارگذاری ...</div>}
       {isError && <div>Error loading data.</div>}
-
-      <div ref={ref} className="h-10" />
     </div>
   );
 }
