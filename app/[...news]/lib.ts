@@ -1,3 +1,4 @@
+"use server"
 import type { News } from "@/types";
 
 async function _fetch(url: string) {
